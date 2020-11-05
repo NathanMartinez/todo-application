@@ -34,6 +34,7 @@ function showTodos() {
       <button class="edit" type="button"><i class="fas fa-pen-square"></i></button>
       <button class="delete" type="button"><i class="fas fa-minus-circle"></i></button>`
       todoContainer.appendChild(todo)
+      todoContainer.scrollTop = todoContainer.scrollHeight;
       todo.addEventListener('click', e => setTodoStatus(e))
     })
   }
