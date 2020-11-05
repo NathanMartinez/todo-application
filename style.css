@@ -28,6 +28,22 @@ body {
   filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EBF4F5", endColorstr="#B5C6E0", GradientType=1);
 }
 
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: .5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -78,10 +94,17 @@ body {
   padding: 0 1rem;
 }
 
-.add i {
-  padding: 0 .5rem;
-  color: #fff;
+#add i,
+#filter i {
   pointer-events: none;
+}
+
+#add {
+  background: hsl(199, 100%, 60%);
+}
+
+#filter {
+  background: rgb(255, 197, 6);
 }
 
 .todo-container {
@@ -102,9 +125,23 @@ body {
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
 }
 
+.todo:last-child {
+  animation: move-left 1s ease-in-out;
+}
+
+@keyframes move-left {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 .todo input {
   flex: 1;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   padding: .8rem;
 }
 
@@ -116,27 +153,10 @@ body {
   font-size: .8rem;
 }
 
-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: hsl(199, 100%, 60%);
-  color: #fff;
-  padding: .5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
-}
-
-button:hover {
-  cursor: pointer;
-  opacity: .8;
-}
-
 .complete,
 .edit,
 .delete {
-  background: #fff;
+  background: transparent
 }
 
 .complete,
@@ -147,13 +167,20 @@ button:hover {
 
 .completed {
   border-left: 2px solid lime;
+  background: rgb(192, 192, 192);
 }
 
 .completed input {
-  color: #f00;
+  color: lime;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  background: transparent;
   text-decoration: line-through;
 }
 
 .completed .edit {
   display: none;
+}
+
+.completed button {
+  background: transparent;
 }
