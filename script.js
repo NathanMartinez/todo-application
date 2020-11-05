@@ -30,9 +30,9 @@ function showTodos() {
       todo.id = i
       todo.classList.add('todo')
       todo.innerHTML = ` <input value="${todoText}" class="todo-text" type="text" autocomplete="off" readonly>
-      <button class="complete" type="button">Complete</button>
-      <button class="edit" type="button">Edit</button>
-      <button class="delete" type="button">Delete</button>`
+      <button class="complete" type="button"><i class="fas fa-check-circle"></i></button>
+      <button class="edit" type="button"><i class="fas fa-pen-square"></i></button>
+      <button class="delete" type="button"><i class="fas fa-minus-circle"></i></button>`
       todoContainer.appendChild(todo)
       todo.addEventListener('click', e => setTodoStatus(e))
     })
@@ -41,14 +41,16 @@ function showTodos() {
 
 function setTodoStatus(e) {
   const todoId = e.target.parentElement.id
-  const selectedButton = e.target.classList[0]
+  const selectedButton = e.target.parentElement
+  const selectedButtonClass = selectedButton.classList[0]
+  const todo = selectedButton.parentElement
 
-  switch (selectedButton) {
+  switch (selectedButtonClass) {
     case 'complete':
-      e.target.parentElement.classList.toggle('completed')
+      todo.classList.toggle('completed')
       break;
     case 'edit':
-      let todoInput = e.target.parentElement.childNodes[1]
+      let todoInput = selectedButton.parentElement.childNodes[1]
       let updatedTodoText = todoInput.value
       todoInput.readOnly = !todoInput.readOnly
       todos[todoId] = updatedTodoText
@@ -56,7 +58,7 @@ function setTodoStatus(e) {
       break;
     case 'delete':
       todos.splice(todoId, 1)
-      e.target.parentElement.remove()
+      selectedButton.parentElement.remove()
       break;
     default:
       break;

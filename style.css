@@ -17,6 +17,15 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background: hsla(186, 33%, 94%, 1);
+
+  background: linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+
+  background: -moz-linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+
+  background: -webkit-linear-gradient(90deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EBF4F5", endColorstr="#B5C6E0", GradientType=1);
 }
 
 .container {
@@ -39,7 +48,10 @@ body {
 
 .title-section h1 {
   font-size: 3.5rem;
+  font-weight: 500;
   margin-bottom: 4rem;
+  color: #fff;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .input-container {
@@ -60,6 +72,10 @@ body {
 .input-container input:focus {
   background: #fff;
   border-bottom: 2px solid hsl(199, 100%, 60%);
+}
+
+.input-container button {
+  padding: 0 1rem;
 }
 
 .add i {
@@ -83,6 +99,7 @@ body {
   background: #fff;
   border-left: 2px solid #000;
   margin-bottom: .5rem;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
 }
 
 .todo input {
@@ -100,9 +117,12 @@ body {
 }
 
 button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: hsl(199, 100%, 60%);
   color: #fff;
-  padding: .8rem;
+  padding: .5rem;
   font-size: 1rem;
   font-weight: 500;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
@@ -113,12 +133,16 @@ button:hover {
   opacity: .8;
 }
 
-.edit {
-  background: lime;
+.complete,
+.edit,
+.delete {
+  background: #fff;
 }
 
-.delete {
-  background: red;
+.complete,
+.edit,
+.delete i {
+  font-size: 1.5rem;
 }
 
 .completed {
