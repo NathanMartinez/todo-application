@@ -24,6 +24,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 90%;
+  max-width: 700px;
   height: 80%;
 }
 
@@ -61,7 +62,7 @@ body {
   border-bottom: 2px solid hsl(199, 100%, 60%);
 }
 
-#add i {
+.add i {
   padding: 0 .5rem;
   color: #fff;
 }
@@ -89,7 +90,7 @@ body {
   padding: .8rem;
 }
 
-#todo-text::placeholder {
+.todo-text::placeholder {
   font-size: .8rem;
 }
 
@@ -107,10 +108,10 @@ button:hover {
   opacity: .8;
 }
 
-#edit {
+.edit {
   background: lime;
 }
 
-#delete {
+.delete {
   background: red;
 }
