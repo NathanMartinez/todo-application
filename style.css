@@ -65,6 +65,7 @@ body {
 .add i {
   padding: 0 .5rem;
   color: #fff;
+  pointer-events: none;
 }
 
 .todo-container {
@@ -88,6 +89,10 @@ body {
   flex: 1;
   font-size: 1.2rem;
   padding: .8rem;
+}
+
+.todo input:focus {
+  border-bottom: 2px solid lime;
 }
 
 .todo-text::placeholder {
@@ -114,4 +119,17 @@ button:hover {
 
 .delete {
   background: red;
+}
+
+.completed {
+  border-left: 2px solid lime;
+}
+
+.completed input {
+  color: #f00;
+  text-decoration: line-through;
+}
+
+.completed .edit {
+  display: none;
 }
