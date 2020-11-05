@@ -1,11 +1,14 @@
 const todoInput = document.getElementById('todoInput')
 const addButton = document.getElementById('add')
+const filterButton = document.getElementById('filter')
+const filterDropdown = document.getElementById('filter-menu')
 const todoContainer = document.getElementById('todo-container')
 
 const todos = []
 
 window.addEventListener('keypress', e => getInputText(e))
 addButton.addEventListener('click', e => getInputText(e))
+filterButton.addEventListener('click', e => filterResults(e))
 
 function getInputText(e) {
   const newTodoText = todoInput.value
@@ -64,4 +67,10 @@ function setTodoStatus(e) {
     default:
       break;
   }
+}
+
+function filterResults() {
+  addButton.classList.add('filtering')
+  filterButton.classList.add('filtering')
+  filterDropdown.classList.remove('filtering')
 }
